@@ -22,6 +22,7 @@ class AddressBook{
     }
 
     //getter and setter meyhod
+    //UC2 - Regex 
     get firstName() { return this._firstName; }
     set firstName(firstName) {
         let firstNameRegex = RegExp('^[A]{1}[a-z]{3,}$');
@@ -84,14 +85,19 @@ class AddressBook{
     toString() {
         return "First Name : "+this.firstName+", Last Name : "+this.lastName+", Address : "+this.address +
                ", City : "+this.city+", State : "+this.state+", Zip : "+this.zip +
-               ", Phone Number : "+this.phoneNumber+", Email : "+this.email;
+               ", Phone Number : "+this.phoneNumber+", Email : "+this.email+"\n\n";
     }
 }
 
 try {
-    let contact = new AddressBook("Rakesh", "King", "Siddanuru", "Davanagere", "Karnataka", 123456, "91 789654123", "rakesh@gmail.com");
-    console.log(contact.toString());
-} catch (e) {
-    console.error(e);
-}
+    contact = new AddressBook("Rakesh", "King", "Siddanuru", "Davanagere", "Karnataka", 123456, "91 789654123", "rakesh@gmail.com");
+    contact1 = new AddressBook("Vishnu", "Dada", "Mys", "Chennai", "TN",456231,"91 9875632100","vishnu@gmail.com");
+    
+    //UC3 - Add contact to New Array
+    let addressBookArr = new Array();
+    addressBookArr.push(contact);
+    addressBookArr.push(contact1);
+    console.log("New AddressBook Array : "+addressBookArr);
+    console.log("Total number of Contacts in AddressBook ="+addressBookArr.length);
 
+} catch (e) { console.error(e);}
